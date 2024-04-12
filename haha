@@ -255,6 +255,41 @@ if v.Name == "Food" or v.Name == "Onion" or v.Name == "Peper" or v.Name == "Appl
     end
 end
 
+function mobesp()
+    for i,v in pairs(game:GetService("Workspace"):GetChildren()) do 
+        if v.Name == "mutant" or v.Name == "vampire" or v.Name == "Vampire" or v.Name == "Mutant" then 
+            local partgui = Instance.new("BillboardGui")
+            partgui.Parent = v.HumanoidRootPart
+            partgui.AlwaysOnTop = true 
+            partgui.Name = "itemespz"
+            partgui.Size = UDim2.new(1,0,1,0)
+
+            local frame = Instance.new("Frame")
+            frame.Parent = partgui
+            frame.BackgroundColor3 = Color3.fromRGB(255,255,255)
+            frame.BackgroundTransparency = 0.25
+            frame.Size = UDim2.new(1,0,1,0)
+            frame.BorderSizePixel = 0
+            local namegui = Instance.new("BillboardGui")
+            namegui.Parent = v.HumanoidRootPart
+            namegui.AlwaysOnTop = true 
+            namegui.Name = "Name"
+            namegui.Size = UDim2.new(1,0,1,0)
+            namegui.SizeOffset = Vector2.new(0,1)
+            local text = Instance.new("TextLabel")
+            text.Parent = namegui
+            text.Text = v.Name
+            text.TextColor3 = Color3.fromRGB(255,255,255)
+            text.TextTransparency = 0.25
+            text.BackgroundTransparency = 1
+            text.TextScaled = true 
+            text.Size = UDim2.new(1,0,1,0)
+            text.Font = Enum.Font.Michroma
+            text.Name = "Gayy"
+        end
+    end
+end
+
 local enginef = loadstring(game:HttpGet("https://raw.githubusercontent.com/Singularity5490/rbimgui-2/main/rbimgui-2.lua"))()
 
 local window1 = enginef.new({
@@ -318,6 +353,9 @@ enginon.event:Connect(function(bool)
     engz = bool 
     if engz then 
     enginesp()
+    game.Workspace.ChildAdded:Connect(function()
+        engineesp()
+    end)
     end
 end)
 
@@ -329,6 +367,9 @@ radion.event:Connect(function(bool)
     radiz = bool 
     if radiz then 
     radiatoresp()
+    game.Workspace.ChildAdded:Connect(function()
+        radiatoresp()
+    end)
     end
 end)
 
@@ -341,6 +382,9 @@ wheelie.event:Connect(function(bool)
     wheelz = bool 
     if wheelz then 
     wheelesp()
+    game.Workspace.ChildAdded:Connect(function()
+        wheelesp()
+    end)
     end
 end)
 
@@ -352,6 +396,9 @@ caseoh.event:Connect(function(bool)
     obesity = bool 
     if obesity then 
     foodesp()
+    game.Workspace.ChildAdded:Connect(function()
+        foodesp()
+    end)
     end
 end)
 
@@ -363,6 +410,23 @@ weepon.event:Connect(function(bool)
     bangbang = bool 
     if bangbang then 
     weaponesp()
+    game.Workspace.ChildAdded:Connect(function()
+        weaponesp()
+    end)
+    end
+end)
+
+local mob = main.new("switch", {
+    text = "weapon esp";
+})
+
+mob.event:Connect(function(bool)
+    gaysex = bool 
+    if gaysex then 
+    mobesp()
+    game.Workspace.ChildAdded:Connect(function()
+        mobesp()
+    end)
     end
 end)
 
@@ -419,4 +483,3 @@ superhuman.event:Connect(function(bool)
         game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
     end
 end)
-
