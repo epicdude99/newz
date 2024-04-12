@@ -465,7 +465,7 @@ local jumping = extra.new("slider", {
     value = 16,
     rounding = 1,
 })
-walking.event:Connect(function(x)
+jumping.event:Connect(function(x)
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = x 
 end)
 
