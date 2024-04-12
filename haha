@@ -10,30 +10,6 @@ local settings = {
     mob_esp = nil,
 }
 
-local Noclip = nil
-local Clip = nil
-
-function noclip()
-	Clip = false
-	local function Nocl()
-		if Clip == false and game.Players.LocalPlayer.Character ~= nil then
-			for _,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
-				if v:IsA('BasePart') and v.CanCollide and v.Name ~= floatName then
-					v.CanCollide = false
-				end
-			end
-		end
-		wait(0.21) -- basic optimization
-	end
-	Noclip = game:GetService('RunService').Stepped:Connect(Nocl)
-end
-
-function clip()
-	if Noclip then Noclip:Disconnect() end
-	Clip = true
-end
-
-
 function gasesp()
         for i,v in pairs(game:GetService("Workspace"):GetChildren()) do 
         if v.Name == "GasCan" or v.Name == "gascan" or v.Name == "oilcan" or v.Name == "OilCan" or v.Name == "WaterCan" or v.Name == "watercan" or v.Name == "DieselCan" or v.Name == "dieselcan" then 
@@ -458,7 +434,16 @@ local extra = window1.new({
     text = "extra",
 })
 
-
+local badge = extra.new("button", {
+    text = "get all badges",
+})
+badge.event:Connect(function()
+    game:GetService("StarterGui"):SetCore("SendNotification",{
+	Title = "coming soon", -- Required
+	Text = "coming soon", -- Required
+    Duration = 5,
+})
+end)
 
 local walking = extra.new("slider", {
     text = "walkspeed",
@@ -496,19 +481,5 @@ superhuman.event:Connect(function(bool)
     else
         game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
         game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
-    end
-end)
-
-local walls = extra.new("switch", {
-    text = "noclip";
-})
-
-walls.event:Connect(function(bool)
-    wallie = bool 
-    if wallie == true then 
-        noclip()
-    elseif wallie == false then 
-        noclip()
-    end
     end
 end)
