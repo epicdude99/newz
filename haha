@@ -417,7 +417,7 @@ weepon.event:Connect(function(bool)
 end)
 
 local mob = main.new("switch", {
-    text = "weapon esp";
+    text = "mob esp";
 })
 
 mob.event:Connect(function(bool)
